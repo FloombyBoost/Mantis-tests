@@ -49,9 +49,9 @@ namespace Mantis_tests
         public void Upload(String path,Stream localFile)
 
         {
-            if (client.FileExists(path))
-            {
-                client.DeleteFile(path);
+           if (client.FileExists(path))
+          {
+               client.DeleteFile(path);
             }
             using (Stream ftpStream = client.OpenWrite(path))
             {

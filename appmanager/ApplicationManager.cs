@@ -8,6 +8,7 @@ using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System.Threading;
+using mantis_tests;
 
 namespace Mantis_tests
 {
@@ -19,6 +20,8 @@ namespace Mantis_tests
 
         public RegistrationHelper Registration { get; private set; }
         public FRTPhelper Ftp { get; private set; }
+        public JamesHelper James { get; private set; }
+        public MailHelper Mail { get; private set; }
 
         protected string baseURL;
         private static ThreadLocal<ApplicationManager> app = new ThreadLocal<ApplicationManager>();
@@ -29,7 +32,8 @@ namespace Mantis_tests
             driver = new ChromeDriver();
             Registration = new RegistrationHelper (this);
             Ftp = new FRTPhelper (this);
-
+            James = new  JamesHelper(this);
+            Mail = new MailHelper (this);
 
 
         }

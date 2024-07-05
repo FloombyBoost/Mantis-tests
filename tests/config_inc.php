@@ -10,3 +10,7 @@ $g_default_timezone       = 'Europe/Berlin';
 $g_crypto_master_salt     = 'yDtTZhsXv589ooR0OvWMkXPDzY31ZOycF/yf7XuKxYc=';
 
 $g_path                   = 'http://localhost/mantisbt-2.26.2/';
+$g_signup_use_captcha	  = OFF;
+$g_phpMailer_method = PHPMAILER_METHOD_SMTP;
+$g_smtp_port = '25';
+$g_smtp_host = 'localhost';
