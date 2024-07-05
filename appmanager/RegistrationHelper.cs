@@ -14,7 +14,7 @@ namespace Mantis_tests
         {
         }
 
-        public void Register(AccountData account)
+        public void Register(AccountData account)//
         {
             OpenMainPage();
             OpenRegistrationFrom();
