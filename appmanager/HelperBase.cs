@@ -30,11 +30,11 @@ namespace Mantis_tests
                 driver.FindElement(locator).SendKeys(text);
             }
         }
-      
-        
-        
 
-    /*
+
+
+
+
 
         public bool IsElementPresent(By by)
         {
@@ -47,7 +47,9 @@ namespace Mantis_tests
             {
                 return false;
             }
-    */
+
+        }
+    
         
     
     }

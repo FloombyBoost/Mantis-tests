@@ -9,7 +9,7 @@ using NUnit.Framework.Legacy;
 namespace Mantis_tests
 {
     [TestFixture]
-    public class UnitTest1 : TestBase
+    public class FTP_test : TestBase
     {
         [Test]
         public void TestMethod1()

@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using NUnit.Framework;
+using System;
 using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
 
 namespace Mantis_tests
 {
-   
-    public class TestBase
+
+    public class TestBase 
     {
-      public static  bool group_perfom_long_UI_checks = true;
-        public static bool contact_perfom_long_UI_checks = true;
+     
         protected ApplicationManager app;
 
         [OneTimeSetUp]
@@ -20,6 +16,13 @@ namespace Mantis_tests
            
             app = ApplicationManager.GetInstanse();
 
+            AccountData account = new AccountData()
+            {
+                Name = "administrator",
+                Password = "root"
+            };
+
+            app.login.Login(account);
 
 
 
@@ -41,6 +44,13 @@ namespace Mantis_tests
             throw new NotImplementedException();
         }
 
+        [TearDown]
+        public void StopChrome()
+        {
+            app.Stop();
+        }
+        
+        
 
 
 

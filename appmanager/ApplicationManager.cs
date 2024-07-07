@@ -8,7 +8,7 @@ using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System.Threading;
-using mantis_tests;
+using Mantis_test;
 
 namespace Mantis_tests
 {
@@ -22,18 +22,27 @@ namespace Mantis_tests
         public FRTPhelper Ftp { get; private set; }
         public JamesHelper James { get; private set; }
         public MailHelper Mail { get; private set; }
+        public LoginHelper login { get; private set; }
+        public ManagementMenuHelper ManagementMenu { get; private set; }
+        public ProjectManagementHelper ProjectManagement { get; private set; }
+        public MantisDB ConnectDB { get; private set; }
 
         protected string baseURL;
         private static ThreadLocal<ApplicationManager> app = new ThreadLocal<ApplicationManager>();
 
         private ApplicationManager()
         {
-            baseURL = "http://localhost/addressbook";
+            baseURL = "http://localhost";
             driver = new ChromeDriver();
             Registration = new RegistrationHelper (this);
             Ftp = new FRTPhelper (this);
             James = new  JamesHelper(this);
             Mail = new MailHelper (this);
+            login = new LoginHelper(this);
+            ManagementMenu = new ManagementMenuHelper (this,baseURL);
+            ProjectManagement = new ProjectManagementHelper (this);
+            ConnectDB = new MantisDB ();
+
 
 
         }

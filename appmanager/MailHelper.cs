@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Mantis_tests;
 using OpaqueMail;
 
-namespace mantis_tests
-{
+namespace Mantis_tests
+{ 
+
+
     public class MailHelper : HelperBase
     {
         public MailHelper(ApplicationManager manager) : base(manager) { }
