@@ -35,7 +35,7 @@ namespace Mantis_tests
 
 
 
-           // app.login.Login(account);
+            // app.login.Login(account);
             app.ProjectManagement.CreateProject(projectData);
             List<ProjectData> NewData = ProjectData.GetProjectsListDB();
             ClassicAssert.AreEqual(OldData.Count + 1, NewData.Count);
@@ -44,24 +44,68 @@ namespace Mantis_tests
 
 
             //OldData.Add(projectData);
-         
+
 
             ProjectData newProjectDataLastAdding = NewData.Last();
             OldData.Add(newProjectDataLastAdding);
             NewData.Sort();
             OldData.Sort();
-            
+
 
             //ClassicAssert.AreEqual(OldData, NewData);
 
             Assert.That(OldData, Is.EquivalentTo(NewData));
 
+        }
+            [Test]
+            public void AddProjectsSOAP()
+            {
+
+            AccountData account = new AccountData()
+            {
+                Name = "administrator",
+                Password = "root"
+            };
+
+            ProjectData projectData = new ProjectData()
+            {
+                Name = GenerateRandomString(4),
+                Description = GenerateRandomString(20)
+            };
+
+            List<ProjectData> OldData = app.API.GetAllProjectsWebService(account);
+
+
+
+            // app.login.Login(account);
+            app.ProjectManagement.CreateProject(projectData);
+            List<ProjectData> NewData = app.API.GetAllProjectsWebService(account);
+            ClassicAssert.AreEqual(OldData.Count + 1, NewData.Count);
 
 
 
 
+            //OldData.Add(projectData);
 
+
+            ProjectData newProjectDataLastAdding = NewData.Last();
+            OldData.Add(newProjectDataLastAdding);
+            NewData.Sort();
+            OldData.Sort();
+
+
+            //ClassicAssert.AreEqual(OldData, NewData);
+
+            Assert.That(OldData, Is.EquivalentTo(NewData));
 
         }
+
+
+
+
+
+
+
+        
     }
 }

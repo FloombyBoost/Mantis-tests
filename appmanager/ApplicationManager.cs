@@ -18,21 +18,25 @@ namespace Mantis_tests
 
         protected IWebDriver driver;
 
-        public RegistrationHelper Registration { get; private set; }
-        public FRTPhelper Ftp { get; private set; }
-        public JamesHelper James { get; private set; }
-        public MailHelper Mail { get; private set; }
-        public LoginHelper login { get; private set; }
-        public ManagementMenuHelper ManagementMenu { get; private set; }
-        public ProjectManagementHelper ProjectManagement { get; private set; }
-        public MantisDB ConnectDB { get; private set; }
+        public RegistrationHelper Registration { get;  set; }
+        public FRTPhelper Ftp { get;  set; }
+        public JamesHelper James { get;  set; }
+        public MailHelper Mail { get; set; }
+        public LoginHelper login { get; set; }
+        public ManagementMenuHelper ManagementMenu { get; set; }
+        public ProjectManagementHelper ProjectManagement { get; set; }
+        public MantisDB ConnectDB { get; set; }
+        public AdminHelper Admin { get;  set; }
+        public APIHelper API { get; set; }
 
         protected string baseURL;
+        protected string baseURLadmin;
         private static ThreadLocal<ApplicationManager> app = new ThreadLocal<ApplicationManager>();
 
         private ApplicationManager()
         {
             baseURL = "http://localhost";
+            baseURLadmin = "http://localhost/mantisbt/mantisbt-2.26.2";
             driver = new ChromeDriver();
             Registration = new RegistrationHelper (this);
             Ftp = new FRTPhelper (this);
@@ -42,6 +46,8 @@ namespace Mantis_tests
             ManagementMenu = new ManagementMenuHelper (this,baseURL);
             ProjectManagement = new ProjectManagementHelper (this);
             ConnectDB = new MantisDB ();
+            Admin  = new AdminHelper(this, baseURLadmin);
+            API = new APIHelper(this);
 
 
 

@@ -4,6 +4,7 @@ using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System.IO;
+using System.Collections.Generic;
 
 namespace Mantis_tests 
 {
@@ -34,6 +35,14 @@ namespace Mantis_tests
             Password = "Test",
             Email = "Test12@localhost.localdomain",
         };
+
+
+            List<AccountData> accounts = app.Admin.GetAllAccounts();
+            AccountData existingAccount = accounts.Find(x => x.Name == account.Name);
+            if (existingAccount != null)
+            {
+                app.Admin.DeleteAccount(existingAccount);
+            }
 
             app.James.Delete(account);
             app.James.Add(account);
