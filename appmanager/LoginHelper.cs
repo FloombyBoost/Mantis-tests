@@ -27,7 +27,7 @@ namespace Mantis_tests
 
         public void Login(AccountData account)
         {
-            if (IsLoggedIn())
+            if (IsLoggedIn(account))
             {
                 if (IsLoggedIn(account))
                 {
@@ -42,9 +42,9 @@ namespace Mantis_tests
             driver.FindElement(By.XPath("//input[@value='Вход']")).Click();
         }
 
-        private void Logout(AccountData account)
+        public void Logout(AccountData account)
         {
-            if (IsLoggedIn())
+            if (IsLoggedIn(account))
             {
                 driver.FindElement(By.XPath("//i[@class = 'fa fa-angle-down ace-icon']")).Click();
                 driver.FindElement(By.XPath("//ul[@class = 'user-menu dropdown-menu dropdown-menu-right dropdown-yellow dropdown-caret dropdown-close']/li[4]")).Click();
@@ -56,11 +56,14 @@ namespace Mantis_tests
             return IsElementPresent(By.XPath("//span[@class='user-info'][text()='" + account.Name + "']"));
         }
 
-        public bool IsLoggedIn()
-        {
-            return IsElementPresent(By.Name("logout"));
-        }
 
+        /*
+                public bool IsLoggedIn()
+                {
+                    return IsElementPresent(By.Name("logout"));
+                }
+
+        */
 
 
     }

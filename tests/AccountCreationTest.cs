@@ -36,6 +36,13 @@ namespace Mantis_tests
             Email = "Test12@localhost.localdomain",
         };
 
+            AccountData accountAdmin = new AccountData()
+            {
+                Name = "administrator",
+                Password = "root",
+              
+            };
+
 
             List<AccountData> accounts = app.Admin.GetAllAccounts();
             AccountData existingAccount = accounts.Find(x => x.Name == account.Name);
@@ -46,6 +53,7 @@ namespace Mantis_tests
 
             app.James.Delete(account);
             app.James.Add(account);
+            app.login.Logout(accountAdmin);
             app.Registration.Register(account);
         }
 

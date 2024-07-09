@@ -25,7 +25,7 @@ namespace Mantis_tests
         public List<AccountData> GetAllAccounts()
         {
             List<AccountData> accounts = new List<AccountData>();
-            IWebDriver driver = OpenAppAndLogin();
+           IWebDriver driver = OpenAppAndLogin();
             driver.Url = baseURL + "/manage_user_page.php";
             IList<IWebElement> rows = driver.FindElements(By.XPath("(//table)[1]//tbody//tr"));
             foreach (IWebElement row in rows)
@@ -41,7 +41,11 @@ namespace Mantis_tests
                     Id = id
                 });
             }
+
+
+            //manager.Stop();
             return accounts;
+
         }
 
         public void DeleteAccount(AccountData account)
@@ -50,19 +54,31 @@ namespace Mantis_tests
             driver.Url = baseURL + "/manage_user_edit_page.php?user_id=" + account.Id;
             driver.FindElement(By.XPath("//form[@id='manage-user-delete-form']/button")).Click();
             driver.FindElement(By.XPath("//input[@type = 'submit']")).Click();
+            //manager.Stop();
         }
 
         private IWebDriver OpenAppAndLogin()
         {
-            IWebDriver driver = new ChromeDriver();
-            driver.Url = baseURL + "/login_page.php";
+            /*
+            if (manager.login.IsLoggedIn())
+            {
+                return driver;
+            }
+            */
+          //  else
+          //  {
+                IWebDriver driver = new ChromeDriver();
+                driver.Url = baseURL + "/login_page.php";
 
-            driver.FindElement(By.Name("username")).SendKeys("administrator");
-            driver.FindElement(By.XPath("//input[@value='Вход']")).Click();
-            driver.FindElement(By.Name("password")).SendKeys("root");
-            driver.FindElement(By.XPath("//input[@value='Вход']")).Click();
+                driver.FindElement(By.Name("username")).SendKeys("administrator");
+                driver.FindElement(By.XPath("//input[@value='Вход']")).Click();
+                driver.FindElement(By.Name("password")).SendKeys("root");
+                driver.FindElement(By.XPath("//input[@value='Вход']")).Click();
 
-            return driver;
+
+                return driver;
+           // }
+
         }
     }
 }

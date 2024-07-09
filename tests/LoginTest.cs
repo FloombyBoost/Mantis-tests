@@ -4,6 +4,7 @@ using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System.IO;
+using Google.Protobuf.WellKnownTypes;
 namespace Mantis_tests
 {
     [TestClass]
@@ -20,7 +21,8 @@ namespace Mantis_tests
                 Password = "Test",
                 Email = "Test12@localhost.localdomain",
             };
-            app.login.Login(account);
+            //app.login.Login(account);
+           app.login.Logout(account);
 
 
         }
