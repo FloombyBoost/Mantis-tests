@@ -250,12 +250,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\Mantis\configuration91.svcinfo" />
+    <None Include="Connected Services\Mantis\configuration.svcinfo" />
     <None Include="Connected Services\Mantis\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Connected Services\Mantis\configuration.svcinfo" />
-    <None Include="Connected Services\Mantis\configuration91.svcinfo" />
     <Content Include="LinqToDB.Templates\CopyMe.MySql.tt.txt" />
   </ItemGroup>
   <ItemGroup>

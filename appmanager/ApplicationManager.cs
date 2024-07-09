@@ -36,7 +36,7 @@ namespace Mantis_tests
         private ApplicationManager()
         {
             baseURL = "http://localhost";
-            baseURLadmin = "http://localhost/mantisbt/mantisbt-2.26.2";
+            baseURLadmin = "http://localhost/mantisbt-2.26.2";
             driver = new ChromeDriver();
             Registration = new RegistrationHelper (this);
             Ftp = new FRTPhelper (this);

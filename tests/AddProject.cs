@@ -87,11 +87,26 @@ namespace Mantis_tests
 
             //OldData.Add(projectData);
 
+            //ProjectData при создании не имеет ID , ID он получает непосредственно при создании, поэтому я ищу ID в новом списке
+            foreach (ProjectData project in NewData)
+            {
+                if (project.Name == projectData.Name && project.Description == projectData.Description)
+                {
+                    projectData.Id = project.Id;
+                    break;
+                }
 
-            ProjectData newProjectDataLastAdding = NewData.Last();
-            OldData.Add(newProjectDataLastAdding);
+            }
+
+
+            
+           // ProjectData newProjectDataLastAdding = NewData.Last();
+            OldData.Add(projectData);
+
             NewData.Sort();
             OldData.Sort();
+            // NewData.Sort();
+            //OldData.Sort();
 
 
             //ClassicAssert.AreEqual(OldData, NewData);
