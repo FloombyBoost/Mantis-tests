@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using System.Text.RegularExpressions;
+using OpenQA.Selenium.Chrome;
 
 namespace Mantis_tests
 {
@@ -24,6 +25,7 @@ namespace Mantis_tests
             String url = GetConfirmationURL(account);
             FillPasswordForm(url,account);
             SubmitPasswordForm();
+         
         }
 
         private void SubmitPasswordForm()
@@ -39,6 +41,7 @@ namespace Mantis_tests
         }
         private void FillPasswordForm(string url, AccountData account)
         {
+            
            
             driver.Url = url;
 

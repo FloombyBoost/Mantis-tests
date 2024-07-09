@@ -43,7 +43,7 @@ namespace Mantis_tests
             }
 
 
-            //manager.Stop();
+            driver.Close();
             return accounts;
 
         }
@@ -54,7 +54,7 @@ namespace Mantis_tests
             driver.Url = baseURL + "/manage_user_edit_page.php?user_id=" + account.Id;
             driver.FindElement(By.XPath("//form[@id='manage-user-delete-form']/button")).Click();
             driver.FindElement(By.XPath("//input[@type = 'submit']")).Click();
-            //manager.Stop();
+            driver.Close();
         }
 
         private IWebDriver OpenAppAndLogin()
@@ -75,8 +75,8 @@ namespace Mantis_tests
                 driver.FindElement(By.Name("password")).SendKeys("root");
                 driver.FindElement(By.XPath("//input[@value='Вход']")).Click();
 
-
-                return driver;
+            
+            return driver;
            // }
 
         }

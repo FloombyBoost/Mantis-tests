@@ -22,7 +22,7 @@ namespace Mantis_tests
                 Password = "root"
             };
 
-            //app.login.Login(account);
+            app.login.Login(account);
 
             List<ProjectData> oldProjects = ProjectData.GetProjectsListDB();
             ProjectData toBeDeleted = oldProjects[0];

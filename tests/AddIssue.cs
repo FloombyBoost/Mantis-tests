@@ -27,6 +27,7 @@ namespace Mantis_tests
                 Description = "Description text",
                 Category = "General"
             };
+            app.login.Login(account);
             List<ProjectData> Listproject = ProjectData.GetProjectsListDB();
             ProjectData projectData = Listproject.First();
 

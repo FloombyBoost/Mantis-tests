@@ -35,7 +35,7 @@ namespace Mantis_tests
 
 
 
-            // app.login.Login(account);
+            app.login.Login(account);
             app.ProjectManagement.CreateProject(projectData);
             List<ProjectData> NewData = ProjectData.GetProjectsListDB();
             ClassicAssert.AreEqual(OldData.Count + 1, NewData.Count);
